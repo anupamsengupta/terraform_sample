@@ -32,6 +32,18 @@ output "dlq_id" {
 output "dlq_arn" {
   value = module.upload_notification_queue.dlq_arn
 }
+output "queue_id_eventbridge" {
+  value = module.upload_notification_queue_eventbridge.queue_id
+}
+output "queue_arn_eventbridge" {
+  value = module.upload_notification_queue_eventbridge.queue_arn
+}
+output "dlq_id_eventbridge" {
+  value = module.upload_notification_queue_eventbridge.dlq_id
+}
+output "dlq_arn_eventbridge" {
+  value = module.upload_notification_queue_eventbridge.dlq_arn
+}
 output "s3_bucket_name" {
   value = module.s3.s3_bucket_name
 }

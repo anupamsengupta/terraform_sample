@@ -61,7 +61,7 @@ resource "aws_cloudwatch_event_rule" "s3_event_rule" {
         key = [
           {
             prefix = var.filter_prefix
-            suffix = var.filter_suffix
+            #suffix = var.filter_suffix
           }
         ]
       }
@@ -98,7 +98,7 @@ resource "aws_sqs_queue_policy" "sqs_policy" {
         Condition = {
           ArnEquals = {
             #"aws:SourceArn" = var.notification_type == "eventbridge" ? "arn:aws:events:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:rule/${aws_cloudwatch_event_rule.s3_event_rule[0].name}" : aws_s3_bucket.s3_bucket.arn
-            "aws:SourceArn" = var.notification_type == "eventbridge" ? "arn:aws:events:${data.aws_region.current}:${data.aws_caller_identity.current.account_id}:rule/${aws_cloudwatch_event_rule.s3_event_rule[0].name}" : aws_s3_bucket.s3_bucket.arn
+            "aws:SourceArn" = var.notification_type == "eventbridge" ? "arn:aws:events:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:rule/${aws_cloudwatch_event_rule.s3_event_rule[0].name}" : aws_s3_bucket.s3_bucket.arn
           }
         }
       }

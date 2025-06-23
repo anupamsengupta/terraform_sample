@@ -45,6 +45,7 @@ module "s3" {
   filter_suffix       = ".jpg"
   sqs_queue_url       = module.upload_notification_queue.queue_url
 }
+
 module "s3_eventbridge" {
   source     = "./modules/persistence/s3"
   depends_on = [module.upload_notification_queue_eventbridge]

@@ -63,6 +63,11 @@ variable "upload_bucket_name" {
   type        = string
   default     = "com-quickysoft-anu-cloudsample1-uploads"
 }
+variable "upload_bucket_name_eventbridge" {
+  description = "Name of the S3 bucket for uploads"
+  type        = string
+  default     = "com-quickysoft-anu-cloudsample1-uploads-eb"
+}
 variable "allow_public_access" {
   description = "Whether to allow public access to the bucket"
   type        = bool
@@ -77,6 +82,11 @@ variable "queue_name" {
   description = "Name tag for the VPC"
   type        = string
   default     = "cloudsample1-upload-notification-queue"
+}
+variable "queue_name_eventbridge" {
+  description = "Name tag for the VPC"
+  type        = string
+  default     = "cloudsample1-upload-notification-queue-eb"
 }
 variable "do_attach_dlq" {
   description = "Flag to attach a dead-letter queue to the SQS queue"
